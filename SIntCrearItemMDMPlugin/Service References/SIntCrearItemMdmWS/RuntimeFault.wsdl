@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WL5G3N0:definitions xmlns:WL5G3N1="http://www.w3.org/2001/XMLSchema" name="RuntimeFault" targetNamespace="http://schemas.oracle.com/bpel/extension" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/">
+  <WL5G3N0:types />
+  <WL5G3N0:message name="RuntimeFaultMessage">
+    <WL5G3N0:part name="code" type="WL5G3N1:string" />
+    <WL5G3N0:part name="summary" type="WL5G3N1:string" />
+    <WL5G3N0:part name="detail" type="WL5G3N1:string" />
+  </WL5G3N0:message>
+</WL5G3N0:definitions>

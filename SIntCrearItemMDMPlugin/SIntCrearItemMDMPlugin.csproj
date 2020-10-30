@@ -1,0 +1,779 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{71D01937-C063-471A-9FD3-6B6DD7FD9594}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SIntCrearItemMDMPlugin</RootNamespace>
+    <AssemblyName>SIntCrearItemMDMPlugin</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CoreAppPlatform">
+      <HintPath>..\..\..\PLM4P\SharedLibs\CoreAppPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="DataLib">
+      <HintPath>..\..\..\PLM4P\SharedLibs\DataLib.dll</HintPath>
+    </Reference>
+    <Reference Include="DataObjects">
+      <HintPath>..\..\..\PLM4P\SharedLibs\DataObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="GeneralServices">
+      <HintPath>..\..\..\PLM4P\SharedLibs\GeneralServices.dll</HintPath>
+    </Reference>
+    <Reference Include="GSMLib">
+      <HintPath>..\..\..\PLM4P\SharedLibs\GSMLib.dll</HintPath>
+    </Reference>
+    <Reference Include="LinearWorkflow, Version=6.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\PLM4P\SharedLibs\LinearWorkflow.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PluginExtensions">
+      <HintPath>..\..\..\PLM4P\SharedLibs\PluginExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="ProdikaCommon">
+      <HintPath>..\..\..\PLM4P\SharedLibs\ProdikaCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WorkflowCore, Version=6.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\PLM4P\SharedLibs\WorkflowCore.dll</HintPath>
+    </Reference>
+    <Reference Include="XenoWebControls">
+      <HintPath>..\..\..\PLM4P\SharedLibs\XenoWebControls.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SIntCrearItemMdmWS\BPEL_CrearItemMdm.wsdl" />
+    <None Include="Service References\SIntCrearItemMdmWS\RuntimeFault.wsdl" />
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.AcceptUnmatchedRecordsAsUniqueResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.acceptUnmatchedRecordsAsUniqueResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.AddRelationshipResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.addRelationshipResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.ApplyChangeListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.applyChangeListResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.AssignUnmergedRecordsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.assignUnmergedRecordsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.AuditResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.auditResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.AuthenticateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.authenticateResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.CanUnmergeRecordsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.canUnmergeRecordsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.CleansePutResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.cleansePutResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.CleanseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.cleanseResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.CleanTableResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.cleanTableResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.ClearAssignedUnmergedRecordsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.clearAssignedUnmergedRecordsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.CreateChangeListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.createChangeListResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.CreateTaskResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.createTaskResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.DeleteRelationshipResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.deleteRelationshipResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.DeleteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.deleteResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.DescribeSiperianObjectResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.describeSiperianObjectResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.ExecuteBatchAutoMatchAndMergeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.executeBatchAutoMatchAndMergeResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.ExecuteBatchAutomergeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.executeBatchAutomergeResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.ExecuteBatchBackfillAllResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.ExecuteBatchBackfillAllResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.ExecuteBatchBackfillResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.ExecuteBatchBackfillResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.ExecuteBatchBVTSnapshotResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.executeBatchBVTSnapshotResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.ExecuteBatchDeleteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.executeBatchDeleteResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.ExecuteBatchExternalMatchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.executeBatchExternalMatchResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.ExecuteBatchGenerateMatchTokensResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.executeBatchGenerateMatchTokensResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.ExecuteBatchGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.executeBatchGroupResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.ExecuteBatchKeyMatchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.executeBatchKeyMatchResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.ExecuteBatchLoadResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.executeBatchLoadResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.ExecuteBatchMatchAnalyzeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.executeBatchMatchAnalyzeResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.ExecuteBatchMatchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.executeBatchMatchResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.ExecuteBatchPromoteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.executeBatchPromoteResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.ExecuteBatchRecalculateBoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.executeBatchRecalculateBoResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.ExecuteBatchRecalculateBvtResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.executeBatchRecalculateBvtResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.ExecuteBatchResetMatchTableResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.executeBatchResetMatchTableResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.ExecuteBatchRevalidateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.executeBatchRevalidateResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.ExecuteBatchStageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.executeBatchStageResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.ExecuteBatchSynchronizeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.executeBatchSynchronizeResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.ExecuteBatchUnmergeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.executeBatchUnmergeResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.ExecuteBatchValidateFKRelationshipsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.executeBatchValidateFKRelationshipsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.FlagForAutomergeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.flagForAutomergeResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.GenerateConstraintsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.generateConstraintsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.GetAggregatePeriodResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.getAggregatePeriodResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.GetAssignableUsersForTasksResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.getAssignableUsersForTasksResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.GetAssignedRecordsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.getAssignedRecordsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.GetBatchGroupStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.getBatchGroupStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.GetBvtResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.getBvtResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.GetEffectivePeriodsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.getEffectivePeriodsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.GetEntityGraphResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.getEntityGraphResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.GetLookupValueResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.getLookupValueResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.GetLookupValuesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.getLookupValuesResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.GetMatchedRecordsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.getMatchedRecordsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.GetMergeHistoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.getMergeHistoryResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.GetOneHopResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.getOneHopResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.GetOrsListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.getOrsListResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.GetOrsMetadataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.getOrsMetadataResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.GetResourcePrivilegesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.getResourcePrivilegesResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.GetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.getResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.GetSearchResultsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.getSearchResultsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.GetSiperianObjectCompatibilityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.getSiperianObjectCompatibilityResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.GetSystemTrustSettingsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.getSystemTrustSettingsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.GetTaskLineageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.getTaskLineageResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.GetTasksResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.getTasksResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.GetTrustGraphDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.getTrustGraphDataResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.GetTrustScoreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.getTrustScoreResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.GetUnmergedRecordCountResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.getUnmergedRecordCountResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.GetValidationStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.getValidationStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.GetXrefForEffectiveDateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.getXrefForEffectiveDateResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.Link2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.link2Response1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.LinkResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.linkResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.ListSiperianObjectsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.listSiperianObjectsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.MergeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.mergeResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.MultiMergeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.multiMergeResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.PreviewBvtResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.previewBvtResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.processResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.PromotePendingXrefsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.promotePendingXrefsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.PutResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.putResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.ReassignRecordsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.reassignRecordsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.RegisterCustomIndexResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.registerCustomIndexResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.RegisterCustomTableObjectResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.registerCustomTableObjectResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.RegisterUsersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.registerUsersResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.RemoveMatchedRecordsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.removeMatchedRecordsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.ResetBatchGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.resetBatchGroupResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.respuestaMdmOutput.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.RestoreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.restoreResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.SearchHmQueryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.searchHmQueryResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.SearchLookupValuesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.searchLookupValuesResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.SearchMatchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.searchMatchResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.SearchQueryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.searchQueryResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.SetPasswordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.setPasswordResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.SetRecordStateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.setRecordStateResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.SyncCustomResourcesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.syncCustomResourcesResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.TokenizeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.tokenizeResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.Unlink2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.unlink2Response1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.UnlinkResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.unlinkResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.UnmergeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.unmergeResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.UnregisterUsersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.unregisterUsersResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.UpdateMatchRecordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.updateMatchRecordResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.UpdateRelationshipResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.updateRelationshipResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.UpdateTaskResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.updateTaskResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.ValidateChangeListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.validateChangeListResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.ValidateMetadataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.validateMetadataResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.ValidateTasksResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMDMPlugin.SIntCrearItemMdmWS.validateTasksResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMdmWS.wsdl" />
+    <None Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMdmWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SIntCrearItemMdmWS\SIntCrearItemMdmWS1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Default.aspx" />
+    <None Include="Service References\SIntCrearItemMdmWS\configuration91.svcinfo" />
+    <None Include="Service References\SIntCrearItemMdmWS\configuration.svcinfo" />
+    <None Include="Service References\SIntCrearItemMdmWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CustomValidationException.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logger.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResetIntegrationStatus.cs" />
+    <Compile Include="Service References\SIntCrearItemMdmWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceClientHelper.cs" />
+    <Compile Include="SIntCrearItemMDMEvaluator.cs" />
+    <Compile Include="Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\SIntCrearItemMdmWS\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54103</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:54103/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

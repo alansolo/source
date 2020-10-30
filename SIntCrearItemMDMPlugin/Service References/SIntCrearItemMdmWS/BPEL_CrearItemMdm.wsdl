@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:ns2="urn:siperian.api" xmlns:client="http://www.comex.com.mx/SIntCrearItemMdm/SIntCrearItemMdm/BPEL_CrearItemMdm" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns3="http://schemas.oracle.com/bpel/extension" xmlns:ns1="http://www.comex.com/CAP/DesarrollarPdtosServcs/xsd/SIntCrearItemPlmToMdm" name="BPEL_CrearItemMdm" targetNamespace="http://www.comex.com.mx/SIntCrearItemMdm/SIntCrearItemMdm/BPEL_CrearItemMdm" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <plnk:partnerLinkType name="BPEL_CrearItemMdm">
+    <plnk:role name="BPEL_CrearItemMdmProvider" portType="client:BPEL_CrearItemMdm" />
+  </plnk:partnerLinkType>
+  <wsdl:import namespace="urn:siperian.api" location="http://172.19.12.121:8011/CAP_DesarrollarPdtosServcs/SIntCrearItemMdm/SIntCrearItemMdmWS?WSDL%2FCAP_DesarrollarPdtosServcs%2FSIntCrearItemMdm%2FWSDL%2FMdmWSDL" />
+  <wsdl:import namespace="http://schemas.oracle.com/bpel/extension" location="http://172.19.12.121:8011/CAP_DesarrollarPdtosServcs/SIntCrearItemMdm/SIntCrearItemMdmWS?WSDL%2FCAP_DesarrollarPdtosServcs%2FSIntCrearItemMdm%2FWSDL%2FRuntimeExceptionWSDL" />
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+      <import schemaLocation="http://172.19.12.121:8011/CAP_DesarrollarPdtosServcs/SIntCrearItemMdm/SIntCrearItemMdmWS?SCHEMA%2FCAP_DesarrollarPdtosServcs%2FSIntCrearItemMdm%2FXSD%2FSIntCrearItemMdmXSD" namespace="http://www.comex.com/CAP/DesarrollarPdtosServcs/xsd/SIntCrearItemPlmToMdm" />
+    </schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import schemaLocation="http://172.19.12.121:8011/CAP_DesarrollarPdtosServcs/SIntCrearItemMdm/SIntCrearItemMdmWS?SCHEMA%2FCAP_DesarrollarPdtosServcs%2FSIntCrearItemMdm%2FXSD%2FInvokeMdmXSD" namespace="http://www.comex.com/CAP/DesarrollarPdtosServcs/xsd/SIntCrearItemPlmToMdm" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="BPEL_CrearItemMdmRequestMessage">
+    <wsdl:part name="payload" element="ns1:articuloInput" />
+  </wsdl:message>
+  <wsdl:message name="BPEL_CrearItemMdmResponseMessage">
+    <wsdl:part name="payload" element="ns1:respuestaMdmOutput" />
+  </wsdl:message>
+  <wsdl:portType name="BPEL_CrearItemMdm">
+    <wsdl:operation name="process">
+      <wsdl:input message="client:BPEL_CrearItemMdmRequestMessage" />
+      <wsdl:output message="client:BPEL_CrearItemMdmResponseMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BPEL_CrearItemMdmBinding" type="client:BPEL_CrearItemMdm">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="process">
+      <soap:operation soapAction="process" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BPEL_CrearItemMdmBindingQSService">
+    <wsdl:documentation>OSB Service</wsdl:documentation>
+    <wsdl:port name="BPEL_CrearItemMdmBindingQSPort" binding="client:BPEL_CrearItemMdmBinding">
+      <soap:address location="http://172.19.12.121:8011/CAP_DesarrollarPdtosServcs/SIntCrearItemMdm/SIntCrearItemMdmWS" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

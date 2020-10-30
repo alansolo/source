@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://www.comex.com/CAP/DesarrollarPdtosServcs/xsd/SIntCrearItemPlmToMdm" elementFormDefault="qualified" targetNamespace="http://www.comex.com/CAP/DesarrollarPdtosServcs/xsd/SIntCrearItemPlmToMdm" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="articuloInput">
+    <xsd:annotation>
+      <xsd:documentation>Elemento de definicion de entrada y salida para creacion o actualizacion de items en MDM</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="Articulo">
+          <xsd:complexType>
+            <xsd:attribute name="TipoArticulo" type="xsd:string" />
+            <xsd:attribute name="IdPLM" type="xsd:string" />
+            <xsd:attribute name="CodigoChamp" type="xsd:string" />
+            <xsd:attribute name="Category" type="xsd:string" />
+            <xsd:attribute name="SubCategory" type="xsd:string" />
+            <xsd:attribute name="Group" type="xsd:string" />
+            <xsd:attribute name="DescripcionProducto" type="xsd:string" />
+            <xsd:attribute name="Densidad" type="xsd:decimal" />
+            <xsd:attribute name="PermanenciaEstante" type="xsd:decimal" />
+            <xsd:attribute name="Altura" type="xsd:decimal" />
+            <xsd:attribute name="Ancho" type="xsd:decimal" />
+            <xsd:attribute name="Longitud" type="xsd:decimal" />
+            <xsd:attribute name="Peso" type="xsd:decimal" />
+            <xsd:attribute name="UOMPrimaria" type="xsd:string" />
+            <xsd:attribute name="UOMDUal" type="xsd:string" />
+            <xsd:attribute name="UOMOrigen" type="xsd:string" />
+            <xsd:attribute name="UOMDestino" type="xsd:string" />
+            <xsd:attribute name="Conversion" type="xsd:decimal" />
+            <xsd:attribute name="Organizacion" type="xsd:string" />
+            <xsd:attribute name="SKUArticulo" type="xsd:string" />
+            <xsd:attribute name="NewOrUpdateFlag" type="xsd:string" />
+            <xsd:attribute name="CategoriaSAT" type="xsd:string" />
+            <xsd:attribute name="FechaLanzamiento" type="xsd:string" />
+            <xsd:attribute name="Futuro1" type="xsd:string" />
+            <xsd:attribute name="Futuro2" type="xsd:string" />
+            <xsd:attribute name="Futuro3" type="xsd:string" />
+            <xsd:attribute name="Futuro4" type="xsd:string" />
+            <xsd:attribute name="Futuro5" type="xsd:string" />
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="respuestaMdmOutput">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="RespuestaMDM">
+          <xsd:complexType>
+            <xsd:attribute name="SKU" type="xsd:string" />
+            <xsd:attribute name="Estatus" type="xsd:string" />
+            <xsd:attribute name="DescripcionError" type="xsd:string" />
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="ElementOrganizacion">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element maxOccurs="unbounded" name="organizaciones">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element maxOccurs="unbounded" name="Organizacion" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

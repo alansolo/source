@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://www.comex.com/CAP/DesarrollarPdtosServcs/xsd/SIntCrearItemPlmToMdm" elementFormDefault="qualified" targetNamespace="http://www.comex.com/CAP/DesarrollarPdtosServcs/xsd/SIntCrearItemPlmToMdm" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="rowIdInvokeMDM">
+    <xsd:annotation>
+      <xsd:documentation>Elemento para mantener el rowId devuelto por la llamada a MDM</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="rowIdElement">
+          <xsd:complexType>
+            <xsd:attribute name="rowId" type="xsd:string" />
+            <xsd:attribute name="username" type="xsd:string" />
+            <xsd:attribute name="password" type="xsd:string" />
+            <xsd:attribute name="rowIdObjProdU" type="xsd:int" />
+            <xsd:attribute name="rowIdObjAttrU" type="xsd:int" />
+            <xsd:attribute name="subjectArea" type="xsd:string" />
+            <xsd:attribute name="orsId" type="xsd:string" />
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

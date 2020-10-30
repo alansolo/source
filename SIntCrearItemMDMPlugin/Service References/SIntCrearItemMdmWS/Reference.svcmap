@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="346c6e42-d1e7-4d37-9eae-292bc1f3724f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://172.19.12.121:8011/CAP_DesarrollarPdtosServcs/SIntCrearItemMdm/SIntCrearItemMdmWS?WSDL" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="RuntimeFault.wsdl" MetadataType="Wsdl" ID="3efc45fb-7417-46a8-9cea-58fbdb6b8454" SourceId="1" SourceUrl="http://172.19.12.121:8011/CAP_DesarrollarPdtosServcs/SIntCrearItemMdm/SIntCrearItemMdmWS?WSDL%2FCAP_DesarrollarPdtosServcs%2FSIntCrearItemMdm%2FWSDL%2FRuntimeExceptionWSDL" />
+    <MetadataFile FileName="BPEL_CrearItemMdm.wsdl" MetadataType="Wsdl" ID="908bbaf9-a16c-4fdc-a28a-712c67476559" SourceId="1" SourceUrl="http://172.19.12.121:8011/CAP_DesarrollarPdtosServcs/SIntCrearItemMdm/SIntCrearItemMdmWS?WSDL" />
+    <MetadataFile FileName="SIntCrearItemMdmWS.xsd" MetadataType="Schema" ID="5d0f9562-65f4-4bd7-ac63-24b5bdd6999d" SourceId="1" SourceUrl="http://172.19.12.121:8011/CAP_DesarrollarPdtosServcs/SIntCrearItemMdm/SIntCrearItemMdmWS?SCHEMA%2FCAP_DesarrollarPdtosServcs%2FSIntCrearItemMdm%2FXSD%2FSIntCrearItemMdmXSD" />
+    <MetadataFile FileName="SIntCrearItemMdmWS.wsdl" MetadataType="Wsdl" ID="8978cb76-53a0-4609-94e3-664b088401f7" SourceId="1" SourceUrl="http://172.19.12.121:8011/CAP_DesarrollarPdtosServcs/SIntCrearItemMdm/SIntCrearItemMdmWS?WSDL%2FCAP_DesarrollarPdtosServcs%2FSIntCrearItemMdm%2FWSDL%2FMdmWSDL" />
+    <MetadataFile FileName="SIntCrearItemMdmWS1.xsd" MetadataType="Schema" ID="cf4bbf5f-40b5-48d6-807b-dfefdba5e598" SourceId="1" SourceUrl="http://172.19.12.121:8011/CAP_DesarrollarPdtosServcs/SIntCrearItemMdm/SIntCrearItemMdmWS?SCHEMA%2FCAP_DesarrollarPdtosServcs%2FSIntCrearItemMdm%2FXSD%2FInvokeMdmXSD" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
